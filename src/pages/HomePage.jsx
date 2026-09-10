@@ -5,7 +5,13 @@ import PageIntro from '../components/PageIntro';
 import useDocumentMeta from '../hooks/useDocumentMeta';
 import { CONTACT_PATH, serviceLinks } from '../config/site';
 
-const journey = ['Paid Demand', 'Conversion Pages', 'CRM Intelligence', 'Automated Follow-Up', 'Revenue Visibility'];
+const journey = [
+  { label: 'Paid Demand', x: 60, y: 260 },
+  { label: 'Conversion Pages', x: 238, y: 208 },
+  { label: 'CRM Intelligence', x: 404, y: 164 },
+  { label: 'Automated Follow-Up', x: 560, y: 112 },
+  { label: 'Revenue Visibility', x: 704, y: 66 }
+];
 
 export default function HomePage() {
   useDocumentMeta(
@@ -15,39 +21,53 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="hero">
+      <section className="hero hero--engine">
         <div className="container hero__grid">
           <div>
             <p className="eyebrow">Todd Marketing · Florida & nationwide</p>
-            <h1>Your growth should not depend on disconnected vendors.</h1>
+            <h1>The Todd Marketing Growth Engine connects every stage from first click to booked revenue.</h1>
             <p className="lead">
-              Todd Marketing connects paid acquisition, high-converting web experiences, CRM infrastructure,
-              and automation into one accountable system.
+              Founder-led strategy and execution across paid demand, conversion pages, CRM intelligence, and automated follow-up so
+              your team can see where revenue visibility is gained or lost.
             </p>
             <div className="hero__actions">
-              <ButtonLink to={CONTACT_PATH}>Request strategy audit</ButtonLink>
+              <ButtonLink to={CONTACT_PATH}>Book a Growth Systems Audit</ButtonLink>
               <ButtonLink to={CONTACT_PATH} secondary>
-                Discuss your current setup
+                Review Your Current Growth System
               </ButtonLink>
             </div>
           </div>
-          <div className="engine-card" aria-label="Growth engine journey">
-            <svg viewBox="0 0 640 320" role="img" aria-label="Connected growth engine diagram">
-              <path d="M24 264h120l48-88h106l42-72h120l52-80h104" />
-              {journey.map((label, idx) => {
-                const x = [24, 192, 340, 502, 608][idx];
-                const y = [264, 176, 176, 104, 24][idx];
-                return (
-                  <g key={label}>
-                    <circle cx={x} cy={y} r="11" />
-                    <text x={x + 14} y={y + 5}>{label}</text>
+
+          <div className="engine-card" aria-label="Todd Marketing Growth Engine journey">
+            <div className="engine-art" aria-hidden="true">
+              <div className="engine-grid" />
+              <div className="engine-arches">
+                <span />
+                <span />
+                <span />
+              </div>
+              <svg viewBox="0 0 760 320" role="img" aria-label="Paid Demand to Revenue Visibility journey map">
+                <title>Growth system journey</title>
+                <path className="engine-path" d="M60 260 C140 250 172 224 238 208 C304 192 332 182 404 164 C474 146 504 128 560 112 C616 96 652 82 704 66" />
+                <path className="engine-path engine-path--secondary" d="M52 274 C152 248 188 228 248 212 C332 190 364 174 426 150 C500 124 548 108 706 56" />
+                {journey.map((item, index) => (
+                  <g key={item.label}>
+                    <circle className="engine-node" cx={item.x} cy={item.y} r="8" />
+                    <text x={item.x + 14} y={item.y - 12}>{item.label}</text>
+                    <text className="engine-telemetry" x={item.x + 14} y={item.y + 10}>
+                      {index === 0 && 'Signal: Demand'}
+                      {index === 1 && 'Signal: Conversion'}
+                      {index === 2 && 'Signal: Qualification'}
+                      {index === 3 && 'Signal: Follow-up'}
+                      {index === 4 && 'Signal: Visibility'}
+                    </text>
                   </g>
-                );
-              })}
-            </svg>
-            <ol>
+                ))}
+              </svg>
+            </div>
+            <ol className="engine-journey-list">
               {journey.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item.label}>{item.label}</li>
               ))}
             </ol>
           </div>
@@ -58,17 +78,26 @@ export default function HomePage() {
         <div className="container">
           <PageIntro
             eyebrow="Founder-led accountability"
-            title="One senior partner. One connected system."
-            text="Direct communication, clear scope, explicit deliverables, and pricing logic built around what the business needs next."
+            title="One senior partner guiding architecture, execution, and decisions"
+            text="Todd Marketing operates with a neutral, founder-led approach focused on clarity, responsible scope, and implementation discipline instead of inflated claims."
           />
-          <div className="founder-placeholder">
-            <div className="placeholder-box" aria-label="Founder portrait placeholder">
-              Todd Marketing founder portrait placeholder
-            </div>
-            <p>
-              Placeholder content area for verified founder bio and portrait. Replace with real founder identity assets
-              before launch.
-            </p>
+          <div className="cards-2">
+            <article className="card">
+              <h2>Public-safe profile</h2>
+              <p>
+                Founder identity details are published only with approved assets and attribution context. Until then, this site stays intentionally neutral while
+                still explaining exactly how engagements are run.
+              </p>
+            </article>
+            <article className="card">
+              <h2>Growth system priorities</h2>
+              <ul>
+                <li>Connect demand generation with downstream conversion pathways</li>
+                <li>Align CRM structure with real sales operations</li>
+                <li>Automate follow-up without losing context or compliance</li>
+                <li>Maintain clear reporting visibility across the full customer journey</li>
+              </ul>
+            </article>
           </div>
         </div>
       </section>
@@ -76,16 +105,12 @@ export default function HomePage() {
       <section className="section">
         <div className="container cards-3">
           <article className="card">
-            <h3>Problem framing</h3>
-            <p>Most teams buy ads, website work, CRM setup, and automation separately and lose visibility between each layer.</p>
-          </article>
-          <article className="card">
-            <h3>Ecosystem preview</h3>
-            <p>Start with one layer, then connect Attract, Capture, Convert, Retain, and Optimize into a complete infrastructure.</p>
+            <h3>Ecosystem architecture</h3>
+            <p>The ecosystem is structured as Attract, Capture, Convert, Retain, and Optimize so each stage has clear ownership and connected handoffs.</p>
             <Link to="/ecosystem">Explore the ecosystem →</Link>
           </article>
           <article className="card">
-            <h3>Service preview</h3>
+            <h3>Service tracks</h3>
             <ul>
               {serviceLinks.map((item) => (
                 <li key={item.to}>
@@ -94,20 +119,30 @@ export default function HomePage() {
               ))}
             </ul>
           </article>
+          <article className="card">
+            <h3>Proof methodology</h3>
+            <p>
+              Results are shared as case studies only when data and attribution are approved. The framework is visible now so decision-makers know how proof will be
+              documented later.
+            </p>
+            <Link to="/results">See proof methodology →</Link>
+          </article>
         </div>
       </section>
 
       <section className="section section--soft">
         <div className="container cards-2">
           <article className="card">
-            <h3>Proof-ready structure</h3>
-            <p>Case study templates and placeholders are prepared for verified production examples only.</p>
-            <Link to="/results">See proof framework →</Link>
+            <h3>Process clarity</h3>
+            <p>Diagnose, Map, Define, Build, Launch, and Optimize with clear artifacts and communication checkpoints at each stage.</p>
+            <Link to="/process">Review the six-stage process →</Link>
           </article>
           <article className="card">
-            <h3>Process preview</h3>
-            <p>Diagnose, Map, Define, Build, Launch, Optimize — scoped and communicated directly with the founder.</p>
-            <Link to="/process">Review process →</Link>
+            <h3>Next step</h3>
+            <p>Start with a growth systems audit to identify the highest-leverage connection points in your current stack.</p>
+            <ButtonLink to={CONTACT_PATH} secondary>
+              Book a Growth Systems Audit
+            </ButtonLink>
           </article>
         </div>
       </section>

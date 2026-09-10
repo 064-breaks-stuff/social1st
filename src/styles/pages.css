@@ -1,36 +1,131 @@
 .hero {
-  background: radial-gradient(circle at 80% 10%, #1238bf 0, #1e1e1e 42%);
   color: white;
   padding: 5.5rem 0 4rem;
+}
+.hero--engine {
+  background:
+    radial-gradient(circle at 82% 12%, rgb(0 58 249 / 32%), transparent 42%),
+    radial-gradient(circle at 10% 85%, rgb(0 58 249 / 18%), transparent 36%),
+    #121317;
 }
 .hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
 .hero .lead { color: #d3d8ff; }
 .hero__grid { display: grid; gap: var(--space-4); align-items: center; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: var(--space-3); }
 .hero .btn--secondary { border-color: #d7deff; color: #f5f7ff; }
+
 .engine-card {
-  border: 1px solid rgb(255 255 255 / 24%);
+  position: relative;
+  border: 1px solid rgb(255 255 255 / 20%);
   border-radius: var(--radius-lg);
-  background: rgb(255 255 255 / 6%);
+  background: linear-gradient(140deg, rgb(255 255 255 / 7%), rgb(255 255 255 / 3%));
   padding: var(--space-2);
-  animation: panelIn var(--motion-mid) ease;
+  overflow: hidden;
 }
-.engine-card svg { width: 100%; height: auto; display: block; overflow: visible; }
-.engine-card path { fill: none; stroke: #85a3ff; stroke-width: 6; stroke-linecap: round; stroke-dasharray: 690; stroke-dashoffset: 690; animation: draw 1.3s ease forwards; }
-.engine-card circle { fill: #fdfdff; stroke: #003af9; stroke-width: 3; }
-.engine-card text { fill: #fdfdff; font-size: 13px; font-family: var(--font-body); }
-.engine-card ol { margin-top: var(--space-2); color: #e4e9ff; display: none; }
+.engine-art {
+  position: relative;
+  border-radius: calc(var(--radius-lg) - .55rem);
+  min-height: 21rem;
+  padding: 1.2rem;
+  background: linear-gradient(180deg, rgb(255 255 255 / 3%), rgb(17 18 24 / 70%));
+}
+.engine-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgb(255 255 255 / 8%) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 8%) 1px, transparent 1px);
+  background-size: 44px 44px;
+  opacity: .18;
+}
+.engine-arches {
+  position: absolute;
+  inset: 1.4rem 1.4rem auto;
+  display: grid;
+  gap: .75rem;
+}
+.engine-arches span {
+  height: 2.75rem;
+  border: 1px solid rgb(126 168 255 / 34%);
+  border-radius: 999px 999px 0 0;
+  border-bottom: 0;
+}
+.engine-card svg {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+  margin-top: 4.2rem;
+}
+.engine-path {
+  fill: none;
+  stroke: #96b0ff;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 820;
+  stroke-dashoffset: 820;
+  animation: draw 1.4s ease forwards;
+}
+.engine-path--secondary {
+  stroke: rgb(122 184 255 / 72%);
+  stroke-width: 2;
+  animation-delay: .16s;
+}
+.engine-node {
+  fill: #fdfdff;
+  stroke: #003af9;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px rgb(99 132 255 / 60%));
+  animation: pulse 2.2s ease-in-out infinite;
+}
+.engine-card text {
+  fill: #fdfdff;
+  font-size: 13px;
+  font-family: var(--font-body);
+}
+.engine-telemetry {
+  fill: #9eb2ff;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+.engine-journey-list {
+  display: none;
+  margin-top: var(--space-2);
+  color: #e4e9ff;
+  gap: .4rem;
+  padding-left: 1rem;
+}
 @keyframes draw { to { stroke-dashoffset: 0; } }
-@keyframes panelIn { from { opacity: 0; transform: translateY(10px); } }
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
 
 @media (min-width: 960px) {
-  .hero__grid { grid-template-columns: 1.1fr .9fr; }
+  .hero__grid { grid-template-columns: 1.02fr .98fr; }
+}
+@media (max-width: 900px) {
+  .engine-art {
+    min-height: 16.5rem;
+    background: linear-gradient(180deg, rgb(255 255 255 / 6%), rgb(17 18 24 / 62%));
+  }
+  .engine-card svg { margin-top: 3rem; }
+  .engine-card text { font-size: 11px; }
 }
 @media (max-width: 768px) {
+  .hero { padding-top: 4.6rem; }
+  .engine-art {
+    min-height: 10.5rem;
+    padding: .85rem;
+  }
+  .engine-arches { inset: 1rem 1rem auto; gap: .5rem; }
+  .engine-arches span { height: 1.9rem; }
   .engine-card svg { display: none; }
-  .engine-card ol { display: grid; gap: .35rem; padding-left: 1rem; }
+  .engine-journey-list { display: grid; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  .engine-path,
+  .engine-node { animation: none; }
   html { scroll-behavior: auto; }
 }

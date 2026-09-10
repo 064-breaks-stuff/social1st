@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link, NavLink } from '../lib/router';
+import { useEffect, useState } from 'react';
+import { Link, NavLink, useLocation } from '../lib/router';
 import { Menu, X } from 'lucide-react';
 import SiteLogo from './SiteLogo';
 import ScrollToTop from './ScrollToTop';
@@ -8,6 +8,11 @@ import { CONTACT_PATH, navLinks } from '../config/site';
 
 export default function Layout({ children }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
     <>
@@ -32,7 +37,7 @@ export default function Layout({ children }) {
           </nav>
           <div className="site-header__actions">
             <ButtonLink to={CONTACT_PATH} className="desktop-only">
-              Start with contact
+              Book a Growth Systems Audit
             </ButtonLink>
             <button
               type="button"
@@ -49,13 +54,11 @@ export default function Layout({ children }) {
         {mobileOpen && (
           <nav id="mobile-nav" className="mobile-nav" aria-label="Mobile">
             {navLinks.map((item) => (
-              <Link key={item.to} to={item.to} className="mobile-nav__link" onClick={() => setMobileOpen(false)}>
+              <Link key={item.to} to={item.to} className="mobile-nav__link">
                 {item.label}
               </Link>
             ))}
-            <ButtonLink to={CONTACT_PATH} onClick={() => setMobileOpen(false)}>
-              Contact Todd Marketing
-            </ButtonLink>
+            <ButtonLink to={CONTACT_PATH}>Book a Growth Systems Audit</ButtonLink>
           </nav>
         )}
       </header>
@@ -76,6 +79,7 @@ export default function Layout({ children }) {
                 {item.label}
               </Link>
             ))}
+            <Link to={CONTACT_PATH}>Book a Growth Systems Audit</Link>
           </div>
         </div>
       </footer>

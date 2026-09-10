@@ -4,6 +4,12 @@ import PageIntro from '../components/PageIntro';
 import useDocumentMeta from '../hooks/useDocumentMeta';
 import { serviceLinks } from '../config/site';
 
+const serviceSummaries = {
+  '/services/websites-funnels': 'Conversion-focused websites and funnel architecture that support clear decisions and measurable CRM handoff.',
+  '/services/advertising': 'Paid media planning and management aligned with offer strategy, landing experiences, and tracking governance.',
+  '/services/crm-automation': 'CRM, GoHighLevel, and n8n workflow architecture that supports routing, follow-up, and operational visibility.'
+};
+
 export default function ServicesPage() {
   useDocumentMeta(
     'Services | Todd Marketing',
@@ -15,19 +21,19 @@ export default function ServicesPage() {
       <div className="container">
         <PageIntro
           eyebrow="Services"
-          title="Three delivery tracks. One integrated objective."
-          text="Each service is scoped with clear deliverables and designed to connect with the rest of your growth infrastructure."
+          title="Distinct service tracks designed to work as one growth system"
+          text="Each engagement can start with a single service and expand into a connected ecosystem with shared strategy, implementation standards, and measurable handoff criteria."
         />
         <div className="cards-3">
           {serviceLinks.map((service) => (
             <article key={service.to} className="card">
               <h2>{service.label}</h2>
-              <p>Delivery-focused module with architecture notes, implementation steps, and integration checkpoints.</p>
+              <p>{serviceSummaries[service.to]}</p>
               <Link to={service.to}>View details →</Link>
             </article>
           ))}
         </div>
-        <ContactCtaPanel title="Need help selecting the right service track?" />
+        <ContactCtaPanel title="Need help selecting your first service track?" />
       </div>
     </section>
   );
