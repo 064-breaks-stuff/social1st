@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap');
+
+:root {
+  --color-ultramarine: #003AF9;
+  --color-charcoal: #1E1E1E;
+  --color-slate: #4D4A59;
+  --color-gray: #BDB9CD;
+  --color-offwhite: #FDFDFF;
+  --color-border: color-mix(in srgb, var(--color-gray) 42%, transparent);
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-display: 'Orbitron', var(--font-body);
+  --space-1: .5rem;
+  --space-2: .875rem;
+  --space-3: 1.25rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --radius: 1rem;
+  --radius-lg: 1.5rem;
+  --shadow: 0 24px 48px -28px rgb(0 0 0 / 35%);
+  --max-width: 72rem;
+  --motion-fast: .2s;
+  --motion-mid: .35s;
+}

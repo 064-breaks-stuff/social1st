@@ -1,0 +1,36 @@
+.hero {
+  background: radial-gradient(circle at 80% 10%, #1238bf 0, #1e1e1e 42%);
+  color: white;
+  padding: 5.5rem 0 4rem;
+}
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+.hero .lead { color: #d3d8ff; }
+.hero__grid { display: grid; gap: var(--space-4); align-items: center; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: var(--space-3); }
+.hero .btn--secondary { border-color: #d7deff; color: #f5f7ff; }
+.engine-card {
+  border: 1px solid rgb(255 255 255 / 24%);
+  border-radius: var(--radius-lg);
+  background: rgb(255 255 255 / 6%);
+  padding: var(--space-2);
+  animation: panelIn var(--motion-mid) ease;
+}
+.engine-card svg { width: 100%; height: auto; display: block; overflow: visible; }
+.engine-card path { fill: none; stroke: #85a3ff; stroke-width: 6; stroke-linecap: round; stroke-dasharray: 690; stroke-dashoffset: 690; animation: draw 1.3s ease forwards; }
+.engine-card circle { fill: #fdfdff; stroke: #003af9; stroke-width: 3; }
+.engine-card text { fill: #fdfdff; font-size: 13px; font-family: var(--font-body); }
+.engine-card ol { margin-top: var(--space-2); color: #e4e9ff; display: none; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes panelIn { from { opacity: 0; transform: translateY(10px); } }
+
+@media (min-width: 960px) {
+  .hero__grid { grid-template-columns: 1.1fr .9fr; }
+}
+@media (max-width: 768px) {
+  .engine-card svg { display: none; }
+  .engine-card ol { display: grid; gap: .35rem; padding-left: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  html { scroll-behavior: auto; }
+}
