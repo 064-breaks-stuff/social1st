@@ -13,22 +13,23 @@ export default function AboutPage() {
       <div className="container">
         <PageIntro
           eyebrow="About"
-          title="Founder-led by design"
-          text="Todd Marketing is Florida-based and supports businesses across the United States with connected growth infrastructure."
+          title="Founder-led growth infrastructure partner"
+          text="Todd Marketing is based in Florida and serves businesses nationwide with a connected approach to demand, conversion, CRM intelligence, and automation."
         />
         <div className="cards-2">
           <article className="card">
-            <h2>Founder placeholder</h2>
-            <div className="placeholder-box">Replace with approved founder portrait and biography.</div>
-            <p>Placeholder only. No fabricated identity details included.</p>
+            <h2>Founder-led narrative</h2>
+            <p>
+              Engagements are led directly by the founder to keep strategy and implementation aligned. Public founder identity details and portrait assets are published only after explicit approval.
+            </p>
           </article>
           <article className="card">
             <h2>Operating principles</h2>
             <ul>
-              <li>Connected ecosystem over fragmented vendors</li>
-              <li>Direct communication and accountable ownership</li>
-              <li>Clear scope, deliverables, and pricing logic</li>
-              <li>Internal over-delivery standard</li>
+              <li>Connected ecosystem over fragmented vendor handoffs</li>
+              <li>Clear scope, transparent milestones, and practical documentation</li>
+              <li>Implementation choices based on business context, not hype</li>
+              <li>Proof published only with approved data and attribution context</li>
             </ul>
           </article>
         </div>

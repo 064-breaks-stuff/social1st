@@ -5,7 +5,7 @@ import useDocumentMeta from '../hooks/useDocumentMeta';
 export default function CrmAutomationPage() {
   useDocumentMeta(
     'CRM & Automation | Todd Marketing',
-    'GoHighLevel setup, client CRM integrations, and n8n workflows for routing, follow-up, and visibility.'
+    'CRM configuration, GoHighLevel implementation planning, and n8n workflow architecture for lead routing and follow-up.'
   );
 
   return (
@@ -13,12 +13,25 @@ export default function CrmAutomationPage() {
       <div className="container">
         <PageIntro
           eyebrow="Service detail"
-          title="CRM and automation as operating infrastructure"
-          text="GoHighLevel configuration or client CRM integration, with n8n workflows that route leads, trigger follow-up, and improve booking visibility."
+          title="CRM and n8n automation as operational infrastructure"
+          text="This track aligns pipeline structure, routing logic, and follow-up workflows so sales and operations teams can act quickly with better context."
         />
         <div className="cards-2">
-          <article className="card"><h2>Implementation areas</h2><ul><li>Lead routing</li><li>Follow-up workflows</li><li>Pipeline and booking automation</li><li>Re-engagement sequences</li></ul></article>
-          <article className="card"><h2>Data visibility</h2><p>Track journey touchpoints from lead creation through handoff outcomes for better operational decisions.</p></article>
+          <article className="card">
+            <h2>Core build scope</h2>
+            <ul>
+              <li>GoHighLevel account architecture or integration with an existing CRM</li>
+              <li>Lead source tagging and qualification logic</li>
+              <li>n8n workflow design for routing, assignment, and follow-up triggers</li>
+              <li>Pipeline visibility and handoff checkpoints for internal teams</li>
+            </ul>
+          </article>
+          <article className="card">
+            <h2>Execution principles</h2>
+            <p>
+              Automation is scoped to reduce manual overhead while preserving human review points, compliance awareness, and reporting clarity across every stage of the customer journey.
+            </p>
+          </article>
         </div>
         <ContactCtaPanel />
       </div>

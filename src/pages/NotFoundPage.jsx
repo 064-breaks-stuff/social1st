@@ -12,7 +12,7 @@ export default function NotFoundPage() {
         <h1>Page not found</h1>
         <p>The page you requested could not be found. Use the links below to continue.</p>
         <div className="hero__actions">
-          <ButtonLink to="/contact">Go to contact</ButtonLink>
+          <ButtonLink to="/contact">Book a Growth Systems Audit</ButtonLink>
         </div>
         <p><Link to="/">Or return to the home page.</Link></p>
       </div>
